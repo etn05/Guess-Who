@@ -1,6 +1,8 @@
 # Guess Who — Web Card Game
 
-A simple browser game inspired by the physical **Guess Who** game. Two people can play on separate phones or laptops using the **same deployed link**—no server or account required. Each player enters the same twenty names, spins privately to get their secret character, then asks questions and taps names to eliminate them.
+https://etn05.github.io/Guess-Who/
+
+A  browser game inspired by the physical **Guess Who** game. Two people can play on separate phones or laptops using the **same deployed link**—no server or account required. Each player enters the same twenty names, spins privately to get their secret character, then asks questions and taps names to eliminate them. 
 
 ## How to play
 

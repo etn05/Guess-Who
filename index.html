@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guess Who — Card Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Guess Who</h1>
+      <p class="tagline">Enter 20 names, then play on your own screen. Keep your character secret until you reveal it.</p>
+    </header>
+
+    <section id="setup" class="panel setup-panel" aria-label="Name setup">
+      <h2>Set up the board</h2>
+      <p class="hint">Enter exactly <strong>20 names</strong>, one per line. Both players should use the <strong>same list in the same order</strong> on each device.</p>
+      <label class="sr-only" for="names-input">Twenty names, one per line</label>
+      <div class="names-field">
+        <div class="line-gutter" id="line-gutter" aria-hidden="true">
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+          <span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span>
+        </div>
+        <textarea
+          id="names-input"
+          class="names-input"
+          rows="20"
+          placeholder="Ada&#10;Ben&#10;Cleo&#10;…"
+          spellcheck="false"
+        ></textarea>
+      </div>
+      <p id="setup-error" class="error" role="alert" hidden></p>
+      <button type="button" id="start-btn" class="btn primary">Start game</button>
+    </section>
+
+    <section id="game" class="game hidden" aria-label="Game board">
+      <div class="toolbar">
+        <div class="toolbar-row">
+          <button type="button" id="spin-btn" class="btn primary">Spin for my character</button>
+          <button type="button" id="reveal-btn" class="btn secondary" disabled>Reveal</button>
+          <button type="button" id="hide-btn" class="btn ghost" disabled>Hide again</button>
+        </div>
+        <div id="spinner-area" class="spinner-area" aria-live="polite">
+          <div id="spinner-visual" class="spinner-visual" aria-hidden="true">
+            <div class="spinner-ring"></div>
+          </div>
+          <p id="secret-status" class="secret-status">Spin to get a random secret character.</p>
+          <p id="secret-name" class="secret-name hidden" data-visible="false"></p>
+        </div>
+        <div class="toolbar-row actions">
+          <button type="button" id="reset-btn" class="btn secondary">Reset game</button>
+          <button type="button" id="edit-names-btn" class="btn ghost">Edit names</button>
+        </div>
+      </div>
+
+      <div id="board" class="board" role="list"></div>
+
+      <div class="notes-panel" role="region" aria-label="Game notes">
+        <h2 class="notes-heading">Notes</h2>
+        <p class="notes-hint">Write questions, clues, or reminders—saved only on this device.</p>
+        <label class="sr-only" for="game-notes">Game notes</label>
+        <textarea
+          id="game-notes"
+          class="notes-input"
+          rows="6"
+          placeholder="e.g. Asked: wears a hat? — cross off anyone without…"
+          spellcheck="true"
+        ></textarea>
+      </div>
+    </section>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
